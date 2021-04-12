@@ -1,0 +1,25 @@
+az webapp create --resource-group istahidrp7rg --plan istahilinuxASP --name istahifrontendaad --runtime "DOTNETCORE|3.1" --deployment-local-git --query deploymentLocalGitUrl
+
+Webapp 'istahifrontendaad' already exists. The command will use the existing app's settings.
+Local git is configured with url of 'https://itahirov@istahifrontendaad.scm.azurewebsites.net/istahifrontendaad.git'
+"https://itahirov@istahifrontendaad.scm.azurewebsites.net/istahifrontendaad.git"
+
+az webapp create --resource-group istahidrp7rg --plan istahilinuxASP --name istahibackendaad --runtime "DOTNETCORE|3.1" --deployment-local-git --query deploymentLocalGitUrl
+
+Local git is configured with url of 'https://itahirov@istahibackendaad.scm.azurewebsites.net/istahibackendaad.git'
+"https://itahirov@istahibackendaad.scm.azurewebsites.net/istahibackendaad.git"
+
+
+az webapp deployment user set --user-name v-istahi --password ismayil@123
+
+Copy the Client ID of the Azure AD application to a notepad. You need this value later. (istahibackendaad)
+228acc02-59fd-4ae6-b585-364403eb4d1d
+
+ - Grant the front end access to the back end 
+ - Configure App Service to return a usable token
+ - Use the token in your code
+ 
+ 
+git add .
+git commit -m "add authorization header for server code"
+git push frontend master
